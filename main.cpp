@@ -7,7 +7,7 @@ int main() {
     
 
 
-    string inputFileName = "1177.txt";
+    string inputFileName = text_ctrl.GetValue()
     string outputFileName = "1177_clean1.txt";
     string outputFileName2 = "1177_clean2.txt";
 
