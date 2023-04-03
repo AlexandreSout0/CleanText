@@ -1,7 +1,7 @@
 #include "Includes.hpp"
 #include <algorithm>
 
-void Processamento(string nameIn_, string nameOut1_, string nameOut2_);
+void Processamento(string nameIn_, string nameOut1_, string nameOut2_ , int numeroLinhas_);
 
 int main() {
 
@@ -9,12 +9,17 @@ int main() {
     while(1)
     {
         string nameIn, nameOut1, nameOut2;
+    int numeroLinhas;
         cout << "Digite o nome do arquivo de o entrada Ex.[nomeArquivo.txt].\n";
         cin >> nameIn;
         cout << "Digite o nome do arquivo de saida Ex.[nomeArquivo.txt].\n";
         cin >> nameOut1;
         nameOut2 = nameOut2 + "_2.txt";
-        Processamento(nameIn,nameOut1,nameOut2);
+
+        cout << "Numero de linhas por arquivo:";
+        cin >> numeroLinhas;
+
+        Processamento(nameIn,nameOut1,nameOut2,numeroLinhas);
 
         return 0;
     }
@@ -22,7 +27,7 @@ int main() {
 
 }
 
-void Processamento(string nameIn_, string nameOut1_, string nameOut2_)
+void Processamento(string nameIn_, string nameOut1_, string nameOut2_,int numeroLinhas_)
 {
 
     string inputFileName = nameIn_;
@@ -48,7 +53,8 @@ void Processamento(string nameIn_, string nameOut1_, string nameOut2_)
                         line.erase(0, pos + delimiter2.length());
                         line = line;
                     }
-                    if (contador > 25000)
+
+                    if (contador > numeroLinhas_)
                     {
                         outputFile2 << line << endl;
                     }
